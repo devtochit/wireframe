@@ -21,10 +21,8 @@ function add_book(title, author) {
 
 }
 function addNew() {
-
     add_book(inputTitle.value, inputName.value)
     dynamic_load();
-    // location.reload()
 
 }
 
@@ -35,26 +33,7 @@ function removebook(title, author) {
     });
 }
 
-
-// for (let i = 0; i < removeButton.length; i += 1) {
-//     removeButton[i].addEventListener("click", function(event) {
-//         console.log(event.target);
-//         const buttonArray = Array.from(removeButton).indexOf(event.target);
-//         const titleArray = Array.from(bookTitle).indexOf(event.target);
-//         const authorArray = Array.from(authorName).indexOf(event.target);
-//     });
-// }
-
-
-
 dynamic_load();
-// removebook("ABC Murders", "Agatha Christie")
-
-// add_book("Name of the book", "Author of the book");
-// add_book("Name of the second book", "Author of the second book");
-// console.log(books.length);
-//console.log(books[3].title);
-// removebook("Name of the book", "Author of the book");
 
 function dynamic_load() {
     const h1 = document.querySelector("h1");
@@ -78,17 +57,17 @@ function dynamic_load() {
         p2.innerText = books[i].author;
         div.appendChild(p2);
         const button = document.createElement("button");
-        button.className = "remove_btn_" + i;
+        button.className = "remove_btn_" + i + " remove_btn";
         button.type = "button";
         button.innerText = "Remove";
         div.appendChild(button);
         const hr = document.createElement("hr");
         div.appendChild(hr);
         bookWrapper.appendChild(div);
-        // h1.insertAdjacentElement('afterend', div);
+
     }
     h1.insertAdjacentElement('afterend', bookWrapper);
-    const removeButton = document.querySelectorAll("button");
+    const removeButton = document.querySelectorAll(".remove_btn");
     removeButton.forEach(btn => btn.addEventListener('click', (e) => {
         const title = document.querySelector(".book-title_" + e.target.classList[0].substr(11));
         const author = document.querySelector(".author-name_" + e.target.classList[0].substr(11));
@@ -96,7 +75,6 @@ function dynamic_load() {
         dynamic_load();
     }));
 }
-
 
 const book_awesome = {
     title: '',
