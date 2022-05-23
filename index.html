@@ -7,36 +7,28 @@
     <title>rewireframe</title>
 </head>
 <body>
-    <div class="outputcard">
-       <div class="todo-class">    
-            <h1  class="header"> My Todo-list </h1>
-        <p class="author-book-title"> TodoItem!! </p>
+    <h1  class="header">Awesome Books</h1>
+    <div class="outputcard"> 
+        <p class="book-title"> My Todo-list </p>
         <p class="author-name"> TodoItem!! </p>
-        <button class="btn"> remove</button>
-    </div>
-    <hr>
-    <br>
-    <div class="outputcard">
-        <div class="todo-class">    
-             <h1  class="author-book-title"> My Todo-list </h1>
-         <p class="author-name"> TodoItem!! </p>
-         <button class="btn"> remove</button>
-     </div>
-     <hr>
+        <button type="button">Remove</button>
+        <hr>
+    </div> 
+    <div class="outputcard"> 
+        <p class="book-title"> My Todo-list </p>
+        <p class="author-name"> TodoItem!! </p>
+        <button type="button">Remove</button>
+        <hr>
+    </div> 
      <br>
 
-     <div class="inputcard">
-         <input type="text" placeholder="Title" id="title">
-     </div>
-     <br>
-     <div class="inputcard">
-        <input type="text" placeholder="author-name" id="name">
-    </div>
-    <br>
+
+    <input type="text" placeholder="Title" id="title" required>
+    <br><br>
+    <input type="text" placeholder="Author" id="name" required>
+    <br><br>
     <button class="btn" onclick=save()> Add</button>
 
-
-    </div>
     <script src="/script/index.js"></script>
 </body>
 </html>
