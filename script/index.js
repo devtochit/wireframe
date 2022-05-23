@@ -1,4 +1,5 @@
-
+const inputTitle = document.getElementById("title")
+const inputName = document.getElementById("name")
 
 
 
@@ -20,6 +21,12 @@ function add_book(title, author) {
     books.push(book1);
 
 }
+function addNew() {
+
+    add_book(inputTitle.value, inputName.value)
+    window.location.reload()
+}
+
 function removebook(title, author) {
     books = books.filter(book => {
         if (book.title != title && book.author != author)
