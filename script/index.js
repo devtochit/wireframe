@@ -65,7 +65,7 @@ function dynamic_load() {
 
     const bookWrapper = document.createElement('div');
     bookWrapper.className = "book_wrapper";
-    
+
     for (let i = 0; i < books.length; i += 1) {
         const div = document.createElement("div");
         div.className = "outputcard";
@@ -90,44 +90,48 @@ function dynamic_load() {
     h1.insertAdjacentElement('afterend', bookWrapper);
     const removeButton = document.querySelectorAll("button");
     removeButton.forEach(btn => btn.addEventListener('click', (e) => {
-    const title = document.querySelector(".book-title_" + e.target.classList[0].substr(11));
-    const author = document.querySelector(".author-name_" + e.target.classList[0].substr(11));
-    removebook(title.innerText, author.innerText);
-    dynamic_load();
-}));
+        const title = document.querySelector(".book-title_" + e.target.classList[0].substr(11));
+        const author = document.querySelector(".author-name_" + e.target.classList[0].substr(11));
+        removebook(title.innerText, author.innerText);
+        dynamic_load();
+    }));
 }
 
 
-// const book_awesome = {
-//     title: '',
-//     author: '',
-//   };
-  
-//   function populateBookForm() {
-//     const currentBook = JSON.parse(localStorage.getItem('data'));
-//     inputTitle.value = currentBook.title;
-//     inputName.value = currentBook.name;
-//   }
-  
-//   function populateStorage() {
-//     book_awesome.title = inputTitle.value;
-//     book_awesome.author = inputName.value;
-//     const storeData = JSON.stringify(book_awesome);
-//     localStorage.setItem('data', storeData);
-  
-//     populateContactForm();
-//   }
-  
-//   if (!localStorage.getItem('data')) {
-//     populateStorage();
-//   } else {
-//     populateBookForm();
-//   }
-  
-//   inputTitle.addEventListener('input', () => {
-//     populateStorage();
-//   });
-  
-//   inputName.addEventListener('input', () => {
-//     populateStorage();
-//   });
+const book_awesome = {
+    title: '',
+    author: '',
+    bookList: []
+};
+
+function populateBookForm() {
+    const currentBook = JSON.parse(localStorage.getItem('data'));
+    inputTitle.value = currentBook.title;
+    inputName.value = currentBook.author;
+    books = currentBook.bookList
+
+}
+
+function populateStorage() {
+    book_awesome.title = inputTitle.value;
+    book_awesome.author = inputName.value;
+    book_awesome.bookList = books
+    const storeData = JSON.stringify(book_awesome);
+    localStorage.setItem('data', storeData);
+
+
+}
+
+if (!localStorage.getItem('data')) {
+    populateStorage();
+} else {
+    populateBookForm();
+}
+
+inputTitle.addEventListener('input', () => {
+    populateStorage();
+});
+
+inputName.addEventListener('input', () => {
+    populateStorage();
+});
