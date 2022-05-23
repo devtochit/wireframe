@@ -28,10 +28,34 @@ function removebook(title, author) {
     });
 }
 
-removebook("ABC Murders", "Agatha Christie")
+// removebook("ABC Murders", "Agatha Christie")
 
-add_book("Name of the book", "Author of the book");
-add_book("Name of the second book", "Author of the second book");
-console.log(books.length);
+// add_book("Name of the book", "Author of the book");
+// add_book("Name of the second book", "Author of the second book");
+// console.log(books.length);
 //console.log(books[3].title);
-removebook("Name of the book", "Author of the book");
+// removebook("Name of the book", "Author of the book");
+
+const h1 = document.querySelector("h1");
+for (let i = 0; i < books.length; i += 1) {
+    const div = document.createElement("div");
+    div.className = "outputcard";
+    const p1 = document.createElement("p");
+    p1.className = "book-title";
+    p1.innerText = books[i].title;
+    div.appendChild(p1);
+    const p2 = document.createElement("p");
+    p2.className = "author-name";
+    p2.innerText = books[i].author;
+    div.appendChild(p2);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.innerText = "Remove";
+    div.appendChild(button);
+    const hr = document.createElement("hr");
+    div.appendChild(hr);
+    h1.insertAdjacentElement('afterend', div);
+}
+
+
+
