@@ -1,6 +1,6 @@
 const inputTitle = document.getElementById("title")
 const inputName = document.getElementById("name")
-
+const body = document.querySelector("body");
 
 let books = [{
     title: "ABC Murders",
@@ -32,7 +32,6 @@ function removebook(title, author) {
     books = books.filter(book => {
         if (book.title != title && book.author != author)
             return true
-
     });
 }
 
@@ -59,12 +58,14 @@ dynamic_load();
 
 function dynamic_load() {
     const h1 = document.querySelector("h1");
-    // if (document.getElementsByClassName("outputcard")) {
-    //     bookWrapper.remove();
-    // }
-    // const bookWrapper = document.createElement('div');
-    // h1.insertAdjacentElement('afterend', bookWrapper);
 
+    if (document.querySelector(".book_wrapper")) {
+        body.removeChild(document.querySelector(".book_wrapper"))
+    }
+
+    const bookWrapper = document.createElement('div');
+    bookWrapper.className = "book_wrapper";
+    
     for (let i = 0; i < books.length; i += 1) {
         const div = document.createElement("div");
         div.className = "outputcard";
@@ -83,19 +84,50 @@ function dynamic_load() {
         div.appendChild(button);
         const hr = document.createElement("hr");
         div.appendChild(hr);
-        // bookWrapper.insertAdjacentElement('afterend', div);
-        h1.insertAdjacentElement('afterend', div);
+        bookWrapper.appendChild(div);
+        // h1.insertAdjacentElement('afterend', div);
     }
-
-}
-
-const removeButton = document.querySelectorAll("button");
-const bookTitle = document.querySelectorAll(".book-title");
-const authorName = document.querySelectorAll(".author-name");
-removeButton.forEach(btn => btn.addEventListener('click', (e) => {
+    h1.insertAdjacentElement('afterend', bookWrapper);
+    const removeButton = document.querySelectorAll("button");
+    removeButton.forEach(btn => btn.addEventListener('click', (e) => {
     const title = document.querySelector(".book-title_" + e.target.classList[0].substr(11));
     const author = document.querySelector(".author-name_" + e.target.classList[0].substr(11));
     removebook(title.innerText, author.innerText);
+    dynamic_load();
 }));
+}
 
 
+// const book_awesome = {
+//     title: '',
+//     author: '',
+//   };
+  
+//   function populateBookForm() {
+//     const currentBook = JSON.parse(localStorage.getItem('data'));
+//     inputTitle.value = currentBook.title;
+//     inputName.value = currentBook.name;
+//   }
+  
+//   function populateStorage() {
+//     book_awesome.title = inputTitle.value;
+//     book_awesome.author = inputName.value;
+//     const storeData = JSON.stringify(book_awesome);
+//     localStorage.setItem('data', storeData);
+  
+//     populateContactForm();
+//   }
+  
+//   if (!localStorage.getItem('data')) {
+//     populateStorage();
+//   } else {
+//     populateBookForm();
+//   }
+  
+//   inputTitle.addEventListener('input', () => {
+//     populateStorage();
+//   });
+  
+//   inputName.addEventListener('input', () => {
+//     populateStorage();
+//   });
