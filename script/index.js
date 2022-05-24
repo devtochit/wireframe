@@ -26,6 +26,18 @@ class Awesome {
       return false;
     });
   }
+
+  size() {
+    return this.books.length;
+  }
+
+  nthTitle(num) {
+    return this.books[num].title;
+  }
+
+  nthAuthor(num) {
+    return this.books[num].author;
+  }
 }
 
 const awesomeBooks = new Awesome();
@@ -50,20 +62,20 @@ function dynamicLoad() {
   const bookWrapper = document.createElement('div');
   bookWrapper.className = 'book_wrapper';
 
-  for (let i = 0; i < awesomeBooks.books.length; i += 1) {
+  for (let i = 0; i < awesomeBooks.size(); i += 1) {
     const div = document.createElement('div');
     div.className = 'outputcard';
     const p0 = document.createElement('p');
     p0.className = 'list-books';
-    p0.innerText = `"${awesomeBooks.books[i].title}" by ${awesomeBooks.books[i].author}`;
+    p0.innerText = `"${awesomeBooks.nthTitle(i)}" by ${awesomeBooks.nthAuthor(i)}`;
     div.appendChild(p0);
     const p1 = document.createElement('p');
     p1.className = `book-title_${i}`;
-    p1.innerText = awesomeBooks.books[i].title;
+    p1.innerText = awesomeBooks.nthTitle(i);
     div.appendChild(p1);
     const p2 = document.createElement('p');
     p2.className = `author-name_${i}`;
-    p2.innerText = awesomeBooks.books[i].author;
+    p2.innerText = awesomeBooks.nthAuthor(i);
     div.appendChild(p2);
     const button = document.createElement('button');
     button.className = `remove_btn_${i} remove_btn`;
