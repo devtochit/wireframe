@@ -3,6 +3,12 @@ const inputName = document.getElementById('name');
 const body = document.querySelector('body');
 const newBook = document.querySelector('.new_book');
 
+const bookAwesome = {
+  title: '',
+  author: '',
+  bookList: [],
+};
+
 class Awesome {
   constructor() {
     this.books = [];
@@ -15,23 +21,6 @@ class Awesome {
 let awesomeBooks = new Awesome();
 awesomeBooks.add('ABC Murders', 'Agatha Christie');
 awesomeBooks.add('Origin', 'Dan Brown');
-// let books = [{
-//   title: 'ABC Murders',
-//   author: 'Agatha Christie',
-// }, {
-//   title: 'Origin',
-//   author: 'Dan Brown',
-// }];
-
-// function Book(title, author) {
-//   this.title = title;
-//   this.author = author;
-// }
-
-function addBook(title, author) {
-  const book1 = new Book(title, author);
-  books.push(book1);
-}
 
 function removeBook(title, author) {
   books = books.filter((book) => {
@@ -41,12 +30,6 @@ function removeBook(title, author) {
     return false;
   });
 }
-
-const bookAwesome = {
-  title: '',
-  author: '',
-  bookList: [],
-};
 
 function populateStorage() {
   bookAwesome.title = inputTitle.value;
@@ -99,7 +82,6 @@ function dynamicLoad() {
 }
 
 newBook.addEventListener('click', () => {
-  // addBook(inputTitle.value, inputName.value);
   awesomeBooks.add(inputTitle.value, inputName.value);
   populateStorage();
   dynamicLoad();
@@ -112,14 +94,6 @@ function populateBookForm() {
   books = currentBook.bookList;
 }
 
-if (!localStorage.getItem('data')) {
-  populateStorage();
-} else {
-  populateBookForm();
-}
-
-dynamicLoad();
-
 inputTitle.addEventListener('input', () => {
   populateStorage();
 });
@@ -127,3 +101,11 @@ inputTitle.addEventListener('input', () => {
 inputName.addEventListener('input', () => {
   populateStorage();
 });
+
+if (!localStorage.getItem('data')) {
+  populateStorage();
+} else {
+  populateBookForm();
+}
+
+dynamicLoad();
