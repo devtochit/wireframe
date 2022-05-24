@@ -3,18 +3,30 @@ const inputName = document.getElementById('name');
 const body = document.querySelector('body');
 const newBook = document.querySelector('.new_book');
 
-let books = [{
-  title: 'ABC Murders',
-  author: 'Agatha Christie',
-}, {
-  title: 'Origin',
-  author: 'Dan Brown',
-}];
-
-function Book(title, author) {
-  this.title = title;
-  this.author = author;
+class Awesome {
+  constructor() {
+    this.books = [];
+  }
+  add(tit, aut) {
+    this.books.push({title : tit, author : aut})
+  }
 }
+
+let awesomeBooks = new Awesome();
+awesomeBooks.add('ABC Murders', 'Agatha Christie');
+awesomeBooks.add('Origin', 'Dan Brown');
+// let books = [{
+//   title: 'ABC Murders',
+//   author: 'Agatha Christie',
+// }, {
+//   title: 'Origin',
+//   author: 'Dan Brown',
+// }];
+
+// function Book(title, author) {
+//   this.title = title;
+//   this.author = author;
+// }
 
 function addBook(title, author) {
   const book1 = new Book(title, author);
@@ -54,16 +66,17 @@ function dynamicLoad() {
   const bookWrapper = document.createElement('div');
   bookWrapper.className = 'book_wrapper';
 
-  for (let i = 0; i < books.length; i += 1) {
+  // for (let i = 0; i < books.length; i += 1) {
+  for (let i = 0; i < awesomeBooks.books.length; i += 1) {
     const div = document.createElement('div');
     div.className = 'outputcard';
     const p1 = document.createElement('p');
     p1.className = `book-title_${i}`;
-    p1.innerText = books[i].title;
+    p1.innerText = awesomeBooks.books[i].title;
     div.appendChild(p1);
     const p2 = document.createElement('p');
     p2.className = `author-name_${i}`;
-    p2.innerText = books[i].author;
+    p2.innerText = awesomeBooks.books[i].author;
     div.appendChild(p2);
     const button = document.createElement('button');
     button.className = `remove_btn_${i} remove_btn`;
@@ -86,7 +99,8 @@ function dynamicLoad() {
 }
 
 newBook.addEventListener('click', () => {
-  addBook(inputTitle.value, inputName.value);
+  // addBook(inputTitle.value, inputName.value);
+  awesomeBooks.add(inputTitle.value, inputName.value);
   populateStorage();
   dynamicLoad();
 });
