@@ -1,51 +1,52 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
-.book_wrapper{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    gap: 10px;
-    align-items:center;
-    justify-content: space-around;
-    width: 80%;
- 
+.book_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
 }
-.outputcard{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 20px;
-    width: 100%;
+
+.outputcard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
 }
 
 .list-books {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
 }
+
 .outputcard button {
-    background-color: rgb(108, 126, 126);
-    height: fit-content;
+  background-color: rgb(108, 126, 126);
+  height: min-content;
 }
 
 .outputcard:nth-of-type(odd) {
-    background-color: rgb(206, 225, 225);
+  background-color: rgb(206, 225, 225);
 }
 
 form {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 form input {
-    width: 60%;
+  width: 60%;
 }
 
-p[class^="book-title_"], 
+p[class^="book-title_"],
 p[class^="author-name_"] {
-    display: none;
+  display: none;
 }

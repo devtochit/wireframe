@@ -54,8 +54,8 @@ function dynamicLoad() {
     const div = document.createElement('div');
     div.className = 'outputcard';
     const p0 = document.createElement('p');
-    p0.className = "list-books";
-    p0.innerText = '"'+ awesomeBooks.books[i].title + '" by ' + awesomeBooks.books[i].author;
+    p0.className = 'list-books';
+    p0.innerText = `"${awesomeBooks.books[i].title}" by ${awesomeBooks.books[i].author}`;
     div.appendChild(p0);
     const p1 = document.createElement('p');
     p1.className = `book-title_${i}`;
