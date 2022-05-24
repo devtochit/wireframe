@@ -59,19 +59,19 @@ function dynamicLoad() {
     div.className = 'outputcard';
     const p1 = document.createElement('p');
     p1.className = `book-title_${i}`;
-    p1.innerText = books[i].title;
+    p1.innerText = '"' + books[i].title + '" by ' + books[i].author;
     div.appendChild(p1);
-    const p2 = document.createElement('p');
-    p2.className = `author-name_${i}`;
-    p2.innerText = books[i].author;
-    div.appendChild(p2);
+    // const p2 = document.createElement('p');
+    // p2.className = `author-name_${i}`;
+    // p2.innerText = books[i].author;
+    // div.appendChild(p2);
     const button = document.createElement('button');
     button.className = `remove_btn_${i} remove_btn`;
     button.type = 'button';
     button.innerText = 'Remove';
     div.appendChild(button);
-    const hr = document.createElement('hr');
-    div.appendChild(hr);
+    // const hr = document.createElement('hr');
+    // div.appendChild(hr);
     bookWrapper.appendChild(div);
   }
   h1.insertAdjacentElement('afterend', bookWrapper);
