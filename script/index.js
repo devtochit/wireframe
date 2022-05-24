@@ -91,8 +91,6 @@ newBook.addEventListener('click', () => {
   dynamicLoad();
 });
 
-dynamicLoad();
-
 function populateBookForm() {
   const currentBook = JSON.parse(localStorage.getItem('data'));
   inputTitle.value = currentBook.title;
@@ -105,6 +103,8 @@ if (!localStorage.getItem('data')) {
 } else {
   populateBookForm();
 }
+
+dynamicLoad();
 
 inputTitle.addEventListener('input', () => {
   populateStorage();
