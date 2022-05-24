@@ -36,14 +36,20 @@ body {
 .outputcard:nth-of-type(odd) {
   background-color: rgb(206, 225, 225);
 }
-
+form h2{
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
 form {
-  width: 80%;
-  margin: auto;
+
+  
 }
 
 form input {
   width: 60%;
+}
+form button{
+    background-color: antiquewhite;
 }
 
 p[class^="book-title_"],
