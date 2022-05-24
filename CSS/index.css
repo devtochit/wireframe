@@ -1,0 +1,24 @@
+.book_wrapper{
+    display: flex;
+    flex-direction: column;
+     margin: 0 20%;
+    gap: 10px;
+    align-items:center;
+    justify-content: space-around;
+ 
+ 
+}
+.outputcard{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap:wrap;
+  
+     width: 80%;
+
+}
+.remove_btn_0{
+    background-color: rgb(108, 126, 126);
+    margin-left: 10px;
+    
+}
