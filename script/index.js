@@ -13,24 +13,24 @@ class Awesome {
   constructor() {
     this.books = [];
   }
+
   add(tit, aut) {
-    this.books.push({title : tit, author : aut})
+    this.books.push({ title: tit, author: aut });
   }
-  remove(tit,aut){
-    this.books=this.books.filter((book) => {
-        if (book.title !== tit && book.author !== aut) {
-          return true;
-        }
-        return false;
-      });
+
+  remove(tit, aut) {
+    this.books = this.books.filter((book) => {
+      if (book.title !== tit && book.author !== aut) {
+        return true;
+      }
+      return false;
+    });
   }
 }
 
-let awesomeBooks = new Awesome();
+const awesomeBooks = new Awesome();
 awesomeBooks.add('ABC Murders', 'Agatha Christie');
 awesomeBooks.add('Origin', 'Dan Brown');
-
-
 
 function populateStorage() {
   bookAwesome.title = inputTitle.value;
@@ -91,7 +91,7 @@ function populateBookForm() {
   const currentBook = JSON.parse(localStorage.getItem('data'));
   inputTitle.value = currentBook.title;
   inputName.value = currentBook.author;
-  books = currentBook.bookList;
+  awesomeBooks.books = currentBook.bookList;
 }
 
 inputTitle.addEventListener('input', () => {
