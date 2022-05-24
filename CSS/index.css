@@ -28,6 +28,12 @@ body {
   text-align: left;
 }
 
+form button {
+  background-color: antiquewhite;
+  align-self: flex-end;
+  margin-right: 20%;
+}
+
 .outputcard button {
   background-color: rgb(108, 126, 126);
   height: min-content;
@@ -36,23 +42,25 @@ body {
 .outputcard:nth-of-type(odd) {
   background-color: rgb(206, 225, 225);
 }
-form h2{
-    border-top: 1px solid black;
-    padding-top: 10px;
-}
-form {
 
-  
+form h2 {
+  border-top: 1px solid black;
+  padding-top: 40px;
 }
 
 form input {
   width: 60%;
-}
-form button{
-    background-color: antiquewhite;
+  margin: auto;
 }
 
 p[class^="book-title_"],
 p[class^="author-name_"] {
   display: none;
+}
+
+form {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
