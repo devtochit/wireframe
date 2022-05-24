@@ -53,6 +53,10 @@ function dynamicLoad() {
   for (let i = 0; i < awesomeBooks.books.length; i += 1) {
     const div = document.createElement('div');
     div.className = 'outputcard';
+    const p0 = document.createElement('p');
+    p0.className = "list-books";
+    p0.innerText = '"'+ awesomeBooks.books[i].title + '" by ' + awesomeBooks.books[i].author;
+    div.appendChild(p0);
     const p1 = document.createElement('p');
     p1.className = `book-title_${i}`;
     p1.innerText = awesomeBooks.books[i].title;
@@ -66,8 +70,6 @@ function dynamicLoad() {
     button.type = 'button';
     button.innerText = 'Remove';
     div.appendChild(button);
-    const hr = document.createElement('hr');
-    div.appendChild(hr);
     bookWrapper.appendChild(div);
   }
   h1.insertAdjacentElement('afterend', bookWrapper);

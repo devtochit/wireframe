@@ -1,24 +1,51 @@
+body {
+    text-align: center;
+}
+
 .book_wrapper{
     display: flex;
     flex-direction: column;
-     margin: 0 20%;
+    margin: auto;
     gap: 10px;
     align-items:center;
     justify-content: space-around;
- 
+    width: 80%;
  
 }
 .outputcard{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: row;
-    flex-wrap:wrap;
-  
-     width: 80%;
-
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 100%;
 }
-.remove_btn_0{
+
+.list-books {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+.outputcard button {
     background-color: rgb(108, 126, 126);
-    margin-left: 10px;
-    
+    height: fit-content;
+}
+
+.outputcard:nth-of-type(odd) {
+    background-color: rgb(206, 225, 225);
+}
+
+form {
+    width: 80%;
+    margin: auto;
+}
+
+form input {
+    width: 60%;
+}
+
+p[class^="book-title_"], 
+p[class^="author-name_"] {
+    display: none;
 }

@@ -33,7 +33,7 @@ In order to run this project on your computer, please make sure that you have a 
 
  - Create a new folder;
  - Copy the index.html to this folder;
- - Copy the styles.css to this folder;
+ - Copy the CSS/index.css to this folder;
  - Copy the script/index.js to this folder;
  - Double click on the index.html on the location of this folder;
 
