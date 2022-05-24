@@ -16,25 +16,26 @@ class Awesome {
   add(tit, aut) {
     this.books.push({title : tit, author : aut})
   }
+  remove(tit,aut){
+    this.books=this.books.filter((book) => {
+        if (book.title !== tit && book.author !== aut) {
+          return true;
+        }
+        return false;
+      });
+  }
 }
 
 let awesomeBooks = new Awesome();
 awesomeBooks.add('ABC Murders', 'Agatha Christie');
 awesomeBooks.add('Origin', 'Dan Brown');
 
-function removeBook(title, author) {
-  books = books.filter((book) => {
-    if (book.title !== title && book.author !== author) {
-      return true;
-    }
-    return false;
-  });
-}
+
 
 function populateStorage() {
   bookAwesome.title = inputTitle.value;
   bookAwesome.author = inputName.value;
-  bookAwesome.bookList = books;
+  bookAwesome.bookList = awesomeBooks.books;
   const storeData = JSON.stringify(bookAwesome);
   localStorage.setItem('data', storeData);
 }
@@ -49,7 +50,6 @@ function dynamicLoad() {
   const bookWrapper = document.createElement('div');
   bookWrapper.className = 'book_wrapper';
 
-  // for (let i = 0; i < books.length; i += 1) {
   for (let i = 0; i < awesomeBooks.books.length; i += 1) {
     const div = document.createElement('div');
     div.className = 'outputcard';
@@ -75,7 +75,7 @@ function dynamicLoad() {
   removeButton.forEach((btn) => btn.addEventListener('click', (e) => {
     const title = document.querySelector(`.book-title_${e.target.classList[0].substr(11)}`);
     const author = document.querySelector(`.author-name_${e.target.classList[0].substr(11)}`);
-    removeBook(title.innerText, author.innerText);
+    awesomeBooks.remove(title.innerText, author.innerText);
     populateStorage();
     dynamicLoad();
   }));
