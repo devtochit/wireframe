@@ -53,7 +53,7 @@ function populateStorage() {
 }
 
 function dynamicLoad() {
-  const h1 = document.querySelector('h1');
+  const header = document.querySelector('header');
 
   if (document.querySelector('.book_wrapper')) {
     body.removeChild(document.querySelector('.book_wrapper'));
@@ -61,6 +61,10 @@ function dynamicLoad() {
 
   const bookWrapper = document.createElement('div');
   bookWrapper.className = 'book_wrapper';
+  bookWrapper.id = 'list';
+  const h1 = document.createElement('h1');
+  h1.innerText = 'All awesome books';
+  bookWrapper.appendChild(h1);
 
   for (let i = 0; i < awesomeBooks.size(); i += 1) {
     const div = document.createElement('div');
@@ -84,7 +88,7 @@ function dynamicLoad() {
     div.appendChild(button);
     bookWrapper.appendChild(div);
   }
-  h1.insertAdjacentElement('afterend', bookWrapper);
+  header.insertAdjacentElement('afterend', bookWrapper);
   const removeButton = document.querySelectorAll('.remove_btn');
   removeButton.forEach((btn) => btn.addEventListener('click', (e) => {
     const title = document.querySelector(`.book-title_${e.target.classList[0].substr(11)}`);

@@ -10,12 +10,18 @@
 </head>
 
 <body>
-    <h1 class="header">Awesome Books</h1>
+    <header>
+        <p>Awesome books</p>
+        <ul>
+            <li class="menu_list"><a href="#list">List</a></li>
+            <li class="menu_add_new"><a href="#add_new">Add new</a></li>
+            <li class="menu_contact"><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
 
     <br>
 
-    <form>
-
+    <form class="newbook" id="add_new">
         <h2> Add a new book</h2>
         <input type="text" placeholder="Title" id="title" required>
         <br><br>
@@ -23,6 +29,18 @@
         <br><br>
         <button type="button" class="new_book">Add</button>
     </form>
+    <section class="contact" id="contact">
+        <h2>Contact information</h2>
+        <p>Do you have any questions or you just want to say "Hello"?<br>You can reach out to us!</p>
+        <ul>
+            <li>Our e-mail: mail@mail.com</li>
+            <li>Our phone number: 0043824826449823</li>
+            <li>Our address: Streetname 22, 86234 City, Country</li>
+        </ul>
+    </section>
+    <footer>
+        <p>Copyright EAOrigami</p>
+    </footer>
 
     <script src="/script/index.js"></script>
 </body>
