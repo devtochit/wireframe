@@ -36,6 +36,13 @@ header li:first-child {
   border-left: none;
 }
 
+.currentdate {
+  text-align: right;
+  margin: auto;
+  width: 80%;
+  padding-top: 10px;
+}
+
 .book_wrapper {
   display: flex;
   flex-direction: column;
@@ -51,6 +58,7 @@ header li:first-child {
   padding: 10px 0;
   margin: 20px 0;
 }
+
 .outputcard {
   display: flex;
   justify-content: space-between;

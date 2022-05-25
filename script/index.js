@@ -8,6 +8,11 @@ const menu_contact = document.querySelector('.menu_contact')
 const contact = document.querySelector('.contact')
 const add_new = document.querySelector('.add_new')
 
+
+
+const d = new Date();
+document.querySelector(".currentdate").innerHTML = d;
+
 const bookAwesome = {
   title: '',
   author: '',
@@ -56,7 +61,7 @@ function populateStorage() {
 }
 
 function dynamicLoad() {
-  const header = document.querySelector('header');
+  const currentdate = document.querySelector('.currentdate');
 
   if (document.querySelector('.book_wrapper')) {
     body.removeChild(document.querySelector('.book_wrapper'));
@@ -91,9 +96,9 @@ function dynamicLoad() {
     div.appendChild(button);
     bookWrapper.appendChild(div);
   }
-  header.insertAdjacentElement('afterend', bookWrapper);
+  currentdate.insertAdjacentElement('afterend', bookWrapper);
   const removeButton = document.querySelectorAll('.remove_btn');
-  
+
   removeButton.forEach((btn) => btn.addEventListener('click', (e) => {
     const title = document.querySelector(`.book-title_${e.target.classList[0].substr(11)}`);
     const author = document.querySelector(`.author-name_${e.target.classList[0].substr(11)}`);
