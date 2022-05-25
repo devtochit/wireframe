@@ -2,16 +2,14 @@ const inputTitle = document.getElementById('title');
 const inputName = document.getElementById('name');
 const body = document.querySelector('body');
 const newBook = document.querySelector('.new_book');
-const menu_list = document.querySelector('.menu_list')
-const menu_add_new = document.querySelector('.menu_add_new')
-const menu_contact = document.querySelector('.menu_contact')
-const contact = document.querySelector('.contact')
-const add_new = document.querySelector('.add_new')
-
-
+const menuList = document.querySelector('.menu_list');
+const menuAddNew = document.querySelector('.menu_add_new');
+const menuContact = document.querySelector('.menu_contact');
+const contact = document.querySelector('.contact');
+const addNew = document.querySelector('.add_new');
 
 const d = new Date();
-document.querySelector(".currentdate").innerHTML = d;
+document.querySelector('.currentdate').innerHTML = d;
 
 const bookAwesome = {
   title: '',
@@ -67,12 +65,12 @@ function dynamicLoad() {
     body.removeChild(document.querySelector('.book_wrapper'));
   }
 
-  const bookWrapper = document.createElement('div');
-  bookWrapper.className = 'book_wrapper';
-  bookWrapper.id = 'list';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'book_wrapper';
+  wrapper.id = 'list';
   const h1 = document.createElement('h1');
   h1.innerText = 'All awesome books';
-  bookWrapper.appendChild(h1);
+  wrapper.appendChild(h1);
 
   for (let i = 0; i < awesomeBooks.size(); i += 1) {
     const div = document.createElement('div');
@@ -94,9 +92,9 @@ function dynamicLoad() {
     button.type = 'button';
     button.innerText = 'Remove';
     div.appendChild(button);
-    bookWrapper.appendChild(div);
+    wrapper.appendChild(div);
   }
-  currentdate.insertAdjacentElement('afterend', bookWrapper);
+  currentdate.insertAdjacentElement('afterend', wrapper);
   const removeButton = document.querySelectorAll('.remove_btn');
 
   removeButton.forEach((btn) => btn.addEventListener('click', (e) => {
@@ -107,15 +105,15 @@ function dynamicLoad() {
     dynamicLoad();
   }));
 
-  menu_list.addEventListener('click', () => {
+  menuList.addEventListener('click', () => {
     dynamicLoad();
-    if (!add_new.classList.contains('inactive')) {
-      add_new.classList.add('inactive');
+    if (!addNew.classList.contains('inactive')) {
+      addNew.classList.add('inactive');
     }
     if (!contact.classList.contains('inactive')) {
       contact.classList.add('inactive');
     }
-  })
+  });
 }
 
 newBook.addEventListener('click', () => {
@@ -138,26 +136,26 @@ inputName.addEventListener('input', () => {
   populateStorage();
 });
 
-menu_add_new.addEventListener('click', () => {
-  const book_wrapper = document.querySelector('.book_wrapper')
-  add_new.classList.remove('inactive')
+menuAddNew.addEventListener('click', () => {
+  const bookWrapper = document.querySelector('.book_wrapper');
+  addNew.classList.remove('inactive');
 
   if (!contact.classList.contains('inactive')) {
-    contact.classList.add('inactive')
+    contact.classList.add('inactive');
   }
-  if (!book_wrapper.classList.contains('inactive')) {
-    book_wrapper.classList.add('inactive')
+  if (!bookWrapper.classList.contains('inactive')) {
+    bookWrapper.classList.add('inactive');
   }
 });
 
-menu_contact.addEventListener('click', () => {
-  const book_wrapper = document.querySelector('.book_wrapper')
-  contact.classList.remove('inactive')
-  if (!add_new.classList.contains('inactive')) {
-    add_new.classList.add('inactive')
+menuContact.addEventListener('click', () => {
+  const bookWrapper = document.querySelector('.book_wrapper');
+  contact.classList.remove('inactive');
+  if (!addNew.classList.contains('inactive')) {
+    addNew.classList.add('inactive');
   }
-  if (!book_wrapper.classList.contains('inactive')) {
-    book_wrapper.classList.add('inactive')
+  if (!bookWrapper.classList.contains('inactive')) {
+    bookWrapper.classList.add('inactive');
   }
 });
 
