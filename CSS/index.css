@@ -39,15 +39,17 @@ header li:first-child {
 .book_wrapper {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  gap: 10px;
+  margin: 20px auto 0;
   align-items: center;
   justify-content: space-around;
   width: 80%;
+  border: 2px solid black;
 }
 
 .book_wrapper h1 {
   font-size: 24px;
+  padding: 10px 0;
+  margin: 20px 0;
 }
 .outputcard {
   display: flex;
@@ -83,7 +85,6 @@ form button {
 }
 
 form h2 {
-  border-top: 1px solid black;
   padding-top: 40px;
 }
 
@@ -109,17 +110,21 @@ form {
   margin: auto;
 }
 
+.contact h2 {
+  padding-top: 40px;
+}
+
 .contact ul {
   text-align: left;
   margin: auto;
   width: fit-content;
-
 }
 
 footer {
   width: 80%;
-  margin: auto;
+  margin: 40px auto 0;
   text-align: left;
+  border: 2px solid black;
 }
 
 footer p {
@@ -130,7 +135,7 @@ footer p {
   display: none;
 }
 
-.new_book.inactive {
+.add_new.inactive {
   display: none;
 }
 

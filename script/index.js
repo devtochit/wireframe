@@ -6,9 +6,7 @@ const menu_list = document.querySelector('.menu_list')
 const menu_add_new = document.querySelector('.menu_add_new')
 const menu_contact = document.querySelector('.menu_contact')
 const contact = document.querySelector('.contact')
-const new_book = document.querySelector('.new_book')
-const book_wrapper = document.querySelector('.book_wrapper')
-
+const add_new = document.querySelector('.add_new')
 
 const bookAwesome = {
   title: '',
@@ -48,8 +46,6 @@ class Awesome {
 }
 
 const awesomeBooks = new Awesome();
-awesomeBooks.add('ABC Murders', 'Agatha Christie');
-awesomeBooks.add('Origin', 'Dan Brown');
 
 function populateStorage() {
   bookAwesome.title = inputTitle.value;
@@ -97,6 +93,7 @@ function dynamicLoad() {
   }
   header.insertAdjacentElement('afterend', bookWrapper);
   const removeButton = document.querySelectorAll('.remove_btn');
+  
   removeButton.forEach((btn) => btn.addEventListener('click', (e) => {
     const title = document.querySelector(`.book-title_${e.target.classList[0].substr(11)}`);
     const author = document.querySelector(`.author-name_${e.target.classList[0].substr(11)}`);
@@ -104,24 +101,21 @@ function dynamicLoad() {
     populateStorage();
     dynamicLoad();
   }));
+
   menu_list.addEventListener('click', () => {
-    bookWrapper.classList.add('inactive')
-    bookWrapper.classList.remove('inactive')
-    if (!new_book.classList.contains('inactive')) {
-      new_book.classList.add('inactive')
+    dynamicLoad();
+    if (!add_new.classList.contains('inactive')) {
+      add_new.classList.add('inactive');
     }
     if (!contact.classList.contains('inactive')) {
+      contact.classList.add('inactive');
     }
-
-
   })
 }
-
 
 newBook.addEventListener('click', () => {
   awesomeBooks.add(inputTitle.value, inputName.value);
   populateStorage();
-  dynamicLoad();
 });
 
 function populateBookForm() {
@@ -140,27 +134,27 @@ inputName.addEventListener('input', () => {
 });
 
 menu_add_new.addEventListener('click', () => {
-  if (new_book.classList.contains('inactive')) {
-    new_book.classList.remove('inactive')
-  }
+  const book_wrapper = document.querySelector('.book_wrapper')
+  add_new.classList.remove('inactive')
+
   if (!contact.classList.contains('inactive')) {
     contact.classList.add('inactive')
   }
   if (!book_wrapper.classList.contains('inactive')) {
     book_wrapper.classList.add('inactive')
   }
-})
+});
+
 menu_contact.addEventListener('click', () => {
+  const book_wrapper = document.querySelector('.book_wrapper')
   contact.classList.remove('inactive')
-  if (!new_book.classList.contains('inactive')) {
-    new_book.classList.add('inactive')
+  if (!add_new.classList.contains('inactive')) {
+    add_new.classList.add('inactive')
   }
   if (!book_wrapper.classList.contains('inactive')) {
     book_wrapper.classList.add('inactive')
   }
-})
-
-
+});
 
 if (!localStorage.getItem('data')) {
   populateStorage();
