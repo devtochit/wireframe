@@ -3,10 +3,6 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 header {
   display: flex;
   width: 80%;
@@ -35,6 +31,12 @@ header li {
 header li:first-child {
   border-left: none;
 }
+
+header li:nth-child(1).active,
+header li:nth-child(2).active,
+header li:nth-child(3).active {
+  color: red;
+} 
 
 .currentdate {
   text-align: right;
