@@ -2,6 +2,13 @@ const inputTitle = document.getElementById('title');
 const inputName = document.getElementById('name');
 const body = document.querySelector('body');
 const newBook = document.querySelector('.new_book');
+const menu_list = document.querySelector('.menu_list')
+const menu_add_new = document.querySelector('.menu_add_new')
+const menu_contact = document.querySelector('.menu_contact')
+const contact = document.querySelector('.contact')
+const new_book = document.querySelector('.new_book')
+const book_wrapper = document.querySelector('.book_wrapper')
+
 
 const bookAwesome = {
   title: '',
@@ -97,7 +104,19 @@ function dynamicLoad() {
     populateStorage();
     dynamicLoad();
   }));
+  menu_list.addEventListener('click', () => {
+    bookWrapper.classList.add('inactive')
+    bookWrapper.classList.remove('inactive')
+    if (!new_book.classList.contains('inactive')) {
+      new_book.classList.add('inactive')
+    }
+    if (!contact.classList.contains('inactive')) {
+    }
+
+
+  })
 }
+
 
 newBook.addEventListener('click', () => {
   awesomeBooks.add(inputTitle.value, inputName.value);
@@ -119,6 +138,29 @@ inputTitle.addEventListener('input', () => {
 inputName.addEventListener('input', () => {
   populateStorage();
 });
+
+menu_add_new.addEventListener('click', () => {
+  if (new_book.classList.contains('inactive')) {
+    new_book.classList.remove('inactive')
+  }
+  if (!contact.classList.contains('inactive')) {
+    contact.classList.add('inactive')
+  }
+  if (!book_wrapper.classList.contains('inactive')) {
+    book_wrapper.classList.add('inactive')
+  }
+})
+menu_contact.addEventListener('click', () => {
+  contact.classList.remove('inactive')
+  if (!new_book.classList.contains('inactive')) {
+    new_book.classList.add('inactive')
+  }
+  if (!book_wrapper.classList.contains('inactive')) {
+    book_wrapper.classList.add('inactive')
+  }
+})
+
+
 
 if (!localStorage.getItem('data')) {
   populateStorage();
